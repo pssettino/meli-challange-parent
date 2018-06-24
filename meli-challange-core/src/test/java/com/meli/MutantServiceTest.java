@@ -56,29 +56,5 @@ public class MutantServiceTest {
 			assertFalse(true);
 		}
 	}
-	
-	@Test
-	public void whenSaveIsSuccess() {
-		List<String> dnaList = new ArrayList<>();
-		dnaList.add("ATGCGA");
-		dnaList.add("CAGTGC");
-		dnaList.add("TTATGT");
-		dnaList.add("AGAAGG");
-		dnaList.add("CCCCTA");
-		dnaList.add("TCACTG");
-		Mutant m = new Mutant();
-		m.setDna(dnaList);
-		try {
-			Boolean esMutante = mutantService.isMutant(m);
-			String json = new Gson().toJson(m);
-			mutantService.save(json, esMutante);
-			assertFalse(esMutante);
-		} catch (BusinessExeption e) {
-			assertFalse(true);
-		}
-	}
-	
-	
-	
 
 }
