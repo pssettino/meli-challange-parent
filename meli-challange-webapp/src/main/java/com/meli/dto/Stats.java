@@ -11,8 +11,18 @@ public class Stats implements Serializable {
 		super();
 		this.countMutantDna = countMutantDna;
 		this.countHumanDna = countHumanDna;
+		this.ratio = calcularRatio();
+	}
+
+	private Float calcularRatio() {
 		Float valor = (new Float(this.countMutantDna) / new Float(this.countHumanDna));
-		this.ratio = valor.isNaN() ? new Float(0) : valor;
+
+		if (this.countHumanDna == 0) {
+			return new Float(this.countMutantDna);
+		} else {
+
+			return valor.isNaN() ? new Float(0) : valor;
+		}
 	}
 
 	public Integer getCountMutantDna() {
